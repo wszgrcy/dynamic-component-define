@@ -1,6 +1,11 @@
 {
   "name": "@cyia/dynamic-component-define",
-  "version": "0.0.2",
+  "version": "0.0.3",
+  "author": {
+    "email": "wszgrcy@gmail.com",
+    "name": "wszgrcy"
+  },
+  "homepage": "https://github.com/wszgrcy/dynamic-component-define",
   "peerDependencies": {
     "@angular/common": "^19.0.0",
     "@angular/core": "^19.0.0"
