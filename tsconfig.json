@@ -4,8 +4,8 @@
   "compileOnSave": false,
   "compilerOptions": {
     "paths": {
-      "component": [
-        "./dist/component"
+      "@cyia/dynamic-component-define": [
+        "./projects/component/src/index.ts"
       ]
     },
     "outDir": "./dist/out-tsc",
