@@ -12,6 +12,8 @@ import { createDynamicComponentDefine } from '@cyia/dynamic-component-define';
 import { C1Component } from '../../projects/component/src/test/component/c1.component';
 import { ClassDirective } from '../../projects/component/src/test/directive/class.directive';
 import { ClickDirective } from '../../projects/component/src/test/directive/click.directive';
+import { Fc1Component } from './demo/fc1/fc1.component';
+import { FormControl, FormControlDirective } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -44,6 +46,23 @@ export class AppComponent {
       environmentInjector: this.envInjector,
     });
     this.continerRef()!.createEmbeddedView(ref.instance.templateRef());
+    let fc = new FormControl();
+    let formInput = signal({
+      formControl: fc,
+    });
+    fc.valueChanges.subscribe((value) => {
+      console.log('值变更', value);
+    });
+    let define2 = createDynamicComponentDefine({ type: Fc1Component }, [
+      {
+        type: FormControlDirective,
+        inputs: formInput,
+      },
+    ]);
+    let ref2 = createComponent(define2, {
+      environmentInjector: this.envInjector,
+    });
+    this.continerRef()!.createEmbeddedView(ref2.instance.templateRef());
   }
   changeClass() {
     this.classInput.update((item) => {
